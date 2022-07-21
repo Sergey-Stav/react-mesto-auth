@@ -1,0 +1,32 @@
+.profile__button-add-elements {
+  background: transparent;
+  width: 150px;
+  height: 50px;
+  margin-left: 19px;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  background-image: url(../../../images/Add.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__button-add-elements {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 767px) {
+  .profile__button-add-elements {
+    width: 335px;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .profile__button-add-elements {
+    width: 100%;
+    background-size: 16px 16px;
+  }
+}

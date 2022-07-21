@@ -1,0 +1,47 @@
+.popup__close {
+  background: transparent;
+  position: absolute;
+  padding: 0;
+  top: -42px;
+  right: -42px;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.popup__close::before {
+  position: absolute;
+  content: "";
+  height: 35px;
+  border: 2px solid #fff;
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.popup__close::after {
+  position: absolute;
+  content: "";
+  height: 35px;
+  border: 2px solid #fff;
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 539px) {
+  .popup__close {
+    top: -38px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+  }
+  .popup__close::before {
+    height: 23px;
+    border: 1px solid #fff;
+  }
+  .popup__close::after {
+    height: 23px;
+    border: 1px solid #fff;
+  }
+}
+/* Стилизация состояния hover выполнена миксом блока opacity с описанным состоянием hover */

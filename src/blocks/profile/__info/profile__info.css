@@ -1,0 +1,15 @@
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "container-avatar title button_edit"
+    "container-avatar subtitle .";
+}
+
+@media screen and (max-width: 767px) {
+  .profile__info {
+    grid-template-areas:
+      "container-avatar container-avatar"
+      "title button_edit"
+      "subtitle subtitle";
+  }
+}

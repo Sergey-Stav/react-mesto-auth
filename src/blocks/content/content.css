@@ -1,0 +1,17 @@
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+@media (min-width: 540px) and (max-width: 1023px) {
+  .content {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media screen and (max-width: 539px) {
+  .content {
+    width: calc(100% - 2 * 19px);
+  }
+}
