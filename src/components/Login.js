@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AuthForm from './AuthForm';
+import AuthForm from "./AuthForm";
 
 function Login(props) {
   const { handleLogin } = props;
@@ -29,29 +29,29 @@ function Login(props) {
       onSubmit={handleSubmit}
       title="Вход"
     >
-        <input
-          className="auth__text"
-          type="email"
-          name="email"
-          value={email}
-          placeholder="Email"
-          minLength="2"
-          maxLength="40"
-          required
-          onChange={handleChangeEmail}
-        />
-        <input
-          className="auth__text"
-          type="password"
-          name="password"
-          value={password}
-          placeholder="Пароль"
-          minLength="6"
-          maxLength="40"
-          required
-          onChange={handleChangePassword}
-        />
-        </AuthForm>
+      <input
+        className="auth__text"
+        type="email"
+        name="email"
+        value={email}
+        placeholder="Email"
+        minLength="2"
+        maxLength="40"
+        required
+        onChange={handleChangeEmail}
+      />
+      <input
+        className="auth__text"
+        type="password"
+        name="password"
+        value={password}
+        placeholder="Пароль"
+        minLength="6"
+        maxLength="40"
+        required
+        onChange={handleChangePassword}
+      />
+    </AuthForm>
   );
 }
 

@@ -214,7 +214,6 @@ function App() {
   };
 
   const handleRegister = (data) => {
-    console.log(data)
     apiAuth
       .registerUser(data)
       .then((res) => {
@@ -223,7 +222,7 @@ function App() {
             image: checkedTrue,
             text: "Вы успешно зарегистрировались!",
           });
-          history.push("/signin");
+          history.push("/sign-in");
         }
       })
       .catch((err) => {

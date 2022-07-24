@@ -7,7 +7,6 @@ function Header(props) {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   function handleMenuOpen() {
-   
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
     } else {
@@ -42,10 +41,14 @@ function Header(props) {
               isMobileMenuOpen && "header__email-container_opened"
             }`}
           >
-            <span className="header__email">{location.pathname === "/" ? email : ''}</span>
+            <span className="header__email">
+              {location.pathname === "/" ? email : ""}
+            </span>
             <Link
               to="/signin"
-              className={`header__link header__link_exit ${isMobileMenuOpen && "header__link_column"}`}
+              className={`header__link header__link_exit ${
+                isMobileMenuOpen && "header__link_column"
+              }`}
               onClick={onSignOut}
             >
               Выйти
