@@ -1,0 +1,65 @@
+/* .tooltip__close-button {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: -41px;
+    right: -41px;
+    border: none;
+    padding: 0;
+    background-image: url(../../../images/button-close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0);
+} */
+
+
+.tooltip__close-button  {
+    background: transparent;
+    position: absolute;
+    padding: 0;
+    top: -42px;
+    right: -42px;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tooltip__close-button::before {
+    position: absolute;
+    content: "";
+    height: 35px;
+    border: 2px solid #fff;
+    top: 0;
+    transform: rotate(45deg);
+  }
+  
+  .tooltip__close-button::after {
+    position: absolute;
+    content: "";
+    height: 35px;
+    border: 2px solid #fff;
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  
+  @media screen and (max-width: 539px) {
+    .tooltip__close-button {
+      top: -38px;
+      right: 0;
+      width: 22px;
+      height: 22px;
+    }
+    .tooltip__close-button::before {
+      height: 23px;
+      border: 1px solid #fff;
+    }
+    .tooltip__close-button::after {
+      height: 23px;
+      border: 1px solid #fff;
+    }
+  }
+
+  .tooltip__close-button:hover {
+    cursor: pointer;
+}
