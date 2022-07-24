@@ -1,8 +1,12 @@
 function PopupWithForm(props) {
-  const { name, title, submitBtnText, isOpened, onClose, children, onSubmit } =
+  const { name, title, submitBtnText, isOpened, onClose, children, onSubmit, isLoading } =
     props;
+    function handleClickOverlay(evt) {
+      evt.target === evt.currentTarget && onClose();
+    } 
   return (
-    <div className={`popup popup_type_${name} ${isOpened && "popup_opened"}`}>
+    <div className={`popup popup_type_${name} ${isOpened && "popup_opened"}`}
+      onClick={handleClickOverlay}>
       <div className="popup__container">
         <button
           onClick={onClose}
@@ -19,7 +23,7 @@ function PopupWithForm(props) {
           {children}
 
           <button className="popup__button" type="submit">
-            {submitBtnText}
+            {isLoading ? ((name === 'confirm') ? 'Удаление...' : 'Сохранение...') : submitBtnText}
           </button>
         </form>
       </div>

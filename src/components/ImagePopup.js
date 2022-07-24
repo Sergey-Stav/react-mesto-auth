@@ -1,7 +1,11 @@
 function ImagePopup(props) {
   const { card, isOpened, onClose } = props;
+  function handleClickOverlay(evt) {
+    evt.target === evt.currentTarget && onClose();
+  }
   return (
-    <div className={`popup popup_type_photo ${isOpened && "popup_opened"}`}>
+    <div className={`popup popup_type_photo ${isOpened && "popup_opened"}`}
+      onClick={handleClickOverlay}>
       <div className="popup__gallery">
         <button
           className="popup__close opacity"

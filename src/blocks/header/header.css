@@ -16,6 +16,11 @@
 
 @media screen and (max-width: 539px) {
   .header {
-    padding: 28px 30px 28px 30px;
+    max-width: 100%;
+    /* padding: 28px 30px 28px 30px; */
+    padding: 28px 0;
+    align-items: stretch;
+    flex-direction: column-reverse;
+    gap: 27px;    
   }
 }

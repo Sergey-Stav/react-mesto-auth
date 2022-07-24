@@ -2,8 +2,13 @@ import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function ConfirmPopup(props) {
-    const { isOpen, onClose, onSubmit } = props;
-    console.log(onSubmit)
+    const { isOpen, onClose, onDeleteCard, isLoading } = props;
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onDeleteCard();
+  }
+  
+ 
   return (
     <PopupWithForm
       name="confirm"
@@ -11,8 +16,8 @@ function ConfirmPopup(props) {
       submitBtnText="Да"
       isOpened={isOpen}
       onClose={onClose}
-        onSubmit={onSubmit}
-          
+      onSubmit={handleSubmit}
+      isLoading={isLoading}
     />
   );
 

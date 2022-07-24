@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
-  const { isOpen, onClose, onAddPlace } = props;
+  const { isOpen, onClose, onAddPlace, isLoading } = props;
   const [name, setName] = useState("");
   const [link, setLink] = useState("");
 
@@ -38,6 +38,7 @@ function AddPlacePopup(props) {
       isOpened={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
     >
       <input
         id="image-title-input"

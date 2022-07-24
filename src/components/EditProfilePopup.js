@@ -5,7 +5,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function EditProfilePopup(props) {
   const currentUser = useContext(CurrentUserContext);
 
-  const { isOpen, onClose, onUpdateUser } = props;
+  const { isOpen, onClose, onUpdateUser, isLoading } = props;
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   useEffect(() => {
@@ -36,6 +36,7 @@ function EditProfilePopup(props) {
       isOpened={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
     >
       <input
         id="name-input"

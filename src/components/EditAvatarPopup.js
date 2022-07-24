@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function EditAvatarPopup(props) {
-  const { isOpen, onClose, onUpdateAvatar } = props;
+  const { isOpen, onClose, onUpdateAvatar, isLoading } = props;
   const avatarLink = useRef();
 
   useEffect(() => {
@@ -28,6 +28,7 @@ function EditAvatarPopup(props) {
       isOpened={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      isLoading={isLoading}
     >
       <input
         id="avatar-link-input"
