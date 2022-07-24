@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 2.2;
   transition: opacity .3s linear;
   text-decoration: none;
   margin-left: 24px;
@@ -14,8 +14,9 @@
   cursor: pointer;  
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 539px) {
   .header__link {
     font-size: 14px;
+    margin-right: 30px;
   }
 }

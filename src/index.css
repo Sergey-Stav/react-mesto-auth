@@ -13,6 +13,7 @@
 @import url(./blocks/header/__menu-button/_type/header__menu-button_type_hidden.css);
 @import url(./blocks/header/__link/header__link.css);
 @import url(./blocks/header/__link/_exit/header__link_exit.css);
+@import url(./blocks/header/__link/_column/header__link_column.css);
 @import url(./blocks/header/__email/header__email.css);
 @import url(./blocks/header/__email-container/header__email-container.css);
 @import url(./blocks/header/__email-container/_opened/header__email-container_opened.css);
@@ -71,7 +72,6 @@
 @import url(./blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(./blocks/popup/__title/_confirm/popup__title_confirm.css);
 
-@import url(./blocks/tooltip/tooltip.css);
 @import url(./blocks/tooltip/__close-button/tooltip__close-button.css);
 @import url(./blocks/tooltip/__container/tooltip__container.css);
 @import url(./blocks/tooltip/__image/tooltip__image.css);

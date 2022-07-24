@@ -15,6 +15,8 @@ import InfoTooltip from "./InfoTooltip.js";
 import ProtectedRoute from "./ProtectedRoute.js";
 import { api } from "../utils/api.js";
 import { apiAuth } from "../utils/apiAuth.js";
+import checkedFalse from "../images/checked-false.svg";
+import checkedTrue from "../images/checked-true.svg";
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
@@ -33,7 +35,7 @@ function App() {
     Boolean(localStorage.getItem("token"))
   );
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
-  const [isRegistrationComplete, setIsRegistrationComplete] = useState(false);
+  const [tooltip, setTooltip] = useState({});
   const history = useHistory();
 
   useEffect(() => {
@@ -90,7 +92,8 @@ function App() {
     isEditProfilePopupOpen ||
     isAddPlacePopupOpen ||
     isImagePopupOpen ||
-    isConfirmPopupOpen;
+    isConfirmPopupOpen ||
+    isInfoTooltipOpen;
 
   useEffect(() => {
     function closeByEscape(evt) {
@@ -211,13 +214,24 @@ function App() {
   };
 
   const handleRegister = (data) => {
+    console.log(data)
     apiAuth
       .registerUser(data)
-      .then(() => {
-        setIsRegistrationComplete(true);
+      .then((res) => {
+        if (res) {
+          setTooltip({
+            image: checkedTrue,
+            text: "Вы успешно зарегистрировались!",
+          });
+          history.push("/signin");
+        }
       })
-      .catch(() => {
-        setIsRegistrationComplete(false);
+      .catch((err) => {
+        console.log(err);
+        setTooltip({
+          image: checkedFalse,
+          text: "Что-то пошло не так! Попробуйте ещё раз.",
+        });
       })
       .finally(() => {
         setIsInfoTooltipOpen(true);
@@ -234,12 +248,16 @@ function App() {
           });
           localStorage.setItem("token", data.token);
           setIsLoggedIn(true);
-
           history.push("/");
         }
       })
       .catch((err) => {
         console.log(err);
+        setTooltip({
+          image: checkedFalse,
+          text: "Что-то пошло не так! Попробуйте ещё раз.",
+        });
+        setIsInfoTooltipOpen(true);
       });
   };
 
@@ -253,11 +271,7 @@ function App() {
         />
         <Switch>
           <Route path="/sign-up">
-            <Register
-              handleRegister={handleRegister}
-              isInfoTooltipOpen={isInfoTooltipOpen}
-              isRegistrationComplete={isRegistrationComplete}
-            />
+            <Register handleRegister={handleRegister} />
           </Route>
           <Route path="/sign-in">
             <Login handleLogin={handleLogin} />
@@ -313,7 +327,7 @@ function App() {
         <InfoTooltip
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
-          registrationComplete={isRegistrationComplete}
+          tooltip={tooltip}
         />
       </div>
     </CurrentUserContext.Provider>

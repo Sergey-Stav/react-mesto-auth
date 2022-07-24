@@ -9,6 +9,7 @@
   color: #ffffff;
   text-decoration: none;
   text-align: center;
+  display: block;
 }
 
 @media screen and (max-width: 539px) {

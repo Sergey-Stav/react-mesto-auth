@@ -45,7 +45,7 @@ function Header(props) {
             <span className="header__email">{location.pathname === "/" ? email : ''}</span>
             <Link
               to="/signin"
-              className="header__link header__link_exit"
+              className={`header__link header__link_exit ${isMobileMenuOpen && "header__link_column"}`}
               onClick={onSignOut}
             >
               Выйти

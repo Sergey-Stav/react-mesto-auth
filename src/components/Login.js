@@ -1,4 +1,5 @@
 import { useState } from "react";
+import AuthForm from './AuthForm';
 
 function Login(props) {
   const { handleLogin } = props;
@@ -15,7 +16,6 @@ function Login(props) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
     handleLogin({
       email,
       password,
@@ -23,9 +23,12 @@ function Login(props) {
   };
 
   return (
-    <div className="auth">
-      <h2 className="auth__title">Вход</h2>
-      <form className="auth__form" onSubmit={handleSubmit}>
+    <AuthForm
+      formNType="login"
+      textOnBtn="Войти"
+      onSubmit={handleSubmit}
+      title="Вход"
+    >
         <input
           className="auth__text"
           type="email"
@@ -48,11 +51,7 @@ function Login(props) {
           required
           onChange={handleChangePassword}
         />
-        <button className="auth__save-button opacity" type="submit">
-          Войти
-        </button>
-      </form>
-    </div>
+        </AuthForm>
   );
 }
 
